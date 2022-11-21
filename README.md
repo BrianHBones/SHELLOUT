@@ -1,2 +1,2 @@
 # SHELLOUT
-the game
+you just lost the game
