@@ -17,12 +17,12 @@ public class Kills : MonoBehaviour
 
     
     [Header("modification amounts")]
-    public float fireRateModification = 1.3f;
-    public float explosiveModification = 2f;
-    public float pierceModification = 1.6f;
+    public float fireRateModification = 2f;
+    public float explosiveModification = 4f;
+    public float pierceModification = 3f;
     public float pistolModification = 2f;
-    public float shotgunModification = 2.5f;
-    public float smgModification = 3f;
+    public float shotgunModification = 3f;
+    public float smgModification = 5f;
 
 
     [Header("modification total")]
@@ -82,6 +82,15 @@ public class Kills : MonoBehaviour
     public void onButtonKill(){
         zombieKills += 1;
         killText.text = ("Kills: " + zombieKills);
+        if(fireRate >= 1){
+            zombieKills += fireRate;
+        }
+        if(piercing >= 1){
+            zombieKills += piercing * 2;
+        }
+        if(explosive >= 1){
+            zombieKills += explosive * 4;
+        }
     }
 
     public void FireRateBuy(){
@@ -91,6 +100,7 @@ public class Kills : MonoBehaviour
             fireRateAmount = fireRateAmount * fireRateModification;
             fireRateText.text = ("Owned: " + fireRate);
             tonextfireRateText.text = ("Next: " + fireRateAmount);
+            killText.text = ("Kills: " + zombieKills);
         }
     }
 
@@ -101,6 +111,7 @@ public class Kills : MonoBehaviour
             explosiveAmount = explosiveAmount * explosiveModification;
             explosiveText.text = ("Owned: " + explosive);
             tonextexplosiveText.text = ("Next: " + explosiveAmount);
+            killText.text = ("Kills: " + zombieKills);
         }
     }
 
@@ -111,6 +122,7 @@ public class Kills : MonoBehaviour
             pierceAmount = pierceAmount * pierceModification;
             pierceText.text = ("Owned: " + piercing);
             tonextpierceText.text = ("Next: " + pierceAmount);
+            killText.text = ("Kills: " + zombieKills);
         }
     }
 
@@ -121,6 +133,7 @@ public class Kills : MonoBehaviour
             pistolAmount =  pistolAmount *  pistolModification;
             pistolText.text = ("Owned: " +  pistol);
             tonextpistolText.text = ("Next: " +  pistolAmount);
+            killText.text = ("Kills: " + zombieKills);
         }
     }
 
@@ -131,6 +144,7 @@ public class Kills : MonoBehaviour
             shotgunAmount =  shotgunAmount *  shotgunModification;
             shotgunText.text = ("Owned: " +  shotgun);
             tonextshotgunText.text = ("Next: " +  shotgunAmount);
+            killText.text = ("Kills: " + zombieKills);
         }
     }
 
@@ -141,6 +155,7 @@ public class Kills : MonoBehaviour
             smgAmount =  smgAmount *  smgModification;
             smgText.text = ("Owned: " +  smg);
             tonextsmgText.text = ("Next: " +  smgAmount);
+            killText.text = ("Kills: " + zombieKills);
         }
     }
 
