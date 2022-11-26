@@ -15,13 +15,10 @@ public class MenuButton : MonoBehaviour
     AudioPlayer audioPlayer;
 
     public void OnButtonStartGame(){
-        audioPlayer.PlayMenuSelectClip();
-        mainScreen.SetActive(false);
         StartCoroutine(GameStartDelay());
     }
     
     public void OnButtonQuit(){
-        audioPlayer.PlayMenuSelectClip();
         Debug.Log("Exiting");
         Application.Quit();
     }
