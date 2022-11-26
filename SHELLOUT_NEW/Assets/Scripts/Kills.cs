@@ -15,7 +15,6 @@ public class Kills : MonoBehaviour
     public int shotgun = 0;
     public int smg = 0;
 
-    
     [Header("modification amounts")]
     public float fireRateModification = 2f;
     public float explosiveModification = 4f;
@@ -24,6 +23,13 @@ public class Kills : MonoBehaviour
     public float shotgunModification = 3f;
     public float smgModification = 5f;
 
+    [Header("pistol Upgrades")]
+    public bool pistolOne = false;
+    public bool pistolThree = false;
+    public bool pistolFive = false;
+    public bool pistolSix = false;
+    int randomexplodeamount = 0;
+    public int aboveThisRandom = 50;
 
     [Header("modification total")]
     public float fireRateAmount = 20f;
@@ -33,9 +39,8 @@ public class Kills : MonoBehaviour
     public float shotgunAmount = 170f;
     public float smgAmount = 240f;
 
-
     [Header("text")]
-    public TextMeshProUGUI killText;
+ 
 
     public TextMeshProUGUI fireRateText;
     public TextMeshProUGUI explosiveText;
@@ -54,14 +59,14 @@ public class Kills : MonoBehaviour
 
     [Header("auto amounts")]
     public bool canShootpistol = true;
-    float timeBetweenShotspistol = 1f;
+    public float timeBetweenShotspistol = 1f;
     public bool canShootshotgun = true;
-    float timeBetweenShotsshotgun = 3f;
+    public float timeBetweenShotsshotgun = 3f;
     public bool canShootsmg = true;
-    float timeBetweenShotssmg = .5f;
+    public float timeBetweenShotssmg = .5f;
 
     void Start(){
-        killText.text = ("Kills: " + zombieKills);
+        
         fireRateText.text = ("Owned: " + fireRate);
         explosiveText.text = ("Owned: " + explosive);
         pierceText.text = ("Owned: " + piercing);
@@ -81,7 +86,6 @@ public class Kills : MonoBehaviour
     }
     public void onButtonKill(){
         zombieKills += 1;
-        killText.text = ("Kills: " + zombieKills);
         if(fireRate >= 1){
             zombieKills += fireRate;
         }
@@ -100,7 +104,6 @@ public class Kills : MonoBehaviour
             fireRateAmount = fireRateAmount * fireRateModification;
             fireRateText.text = ("Owned: " + fireRate);
             tonextfireRateText.text = ("Next: " + fireRateAmount);
-            killText.text = ("Kills: " + zombieKills);
         }
     }
 
@@ -111,7 +114,6 @@ public class Kills : MonoBehaviour
             explosiveAmount = explosiveAmount * explosiveModification;
             explosiveText.text = ("Owned: " + explosive);
             tonextexplosiveText.text = ("Next: " + explosiveAmount);
-            killText.text = ("Kills: " + zombieKills);
         }
     }
 
@@ -122,7 +124,6 @@ public class Kills : MonoBehaviour
             pierceAmount = pierceAmount * pierceModification;
             pierceText.text = ("Owned: " + piercing);
             tonextpierceText.text = ("Next: " + pierceAmount);
-            killText.text = ("Kills: " + zombieKills);
         }
     }
 
@@ -133,7 +134,6 @@ public class Kills : MonoBehaviour
             pistolAmount =  pistolAmount *  pistolModification;
             pistolText.text = ("Owned: " +  pistol);
             tonextpistolText.text = ("Next: " +  pistolAmount);
-            killText.text = ("Kills: " + zombieKills);
         }
     }
 
@@ -144,7 +144,6 @@ public class Kills : MonoBehaviour
             shotgunAmount =  shotgunAmount *  shotgunModification;
             shotgunText.text = ("Owned: " +  shotgun);
             tonextshotgunText.text = ("Next: " +  shotgunAmount);
-            killText.text = ("Kills: " + zombieKills);
         }
     }
 
@@ -155,7 +154,6 @@ public class Kills : MonoBehaviour
             smgAmount =  smgAmount *  smgModification;
             smgText.text = ("Owned: " +  smg);
             tonextsmgText.text = ("Next: " +  smgAmount);
-            killText.text = ("Kills: " + zombieKills);
         }
     }
 
@@ -174,8 +172,23 @@ public class Kills : MonoBehaviour
 
     private void Shootpistol(){
         canShootpistol = false;
+        
         zombieKills += pistol;
-        killText.text = ("Kills: " + zombieKills);
+        if(pistolOne){
+            zombieKills += pistol;
+        }
+        if(pistolThree){
+            zombieKills += pistol + pistol;
+        }
+        if(pistolSix){
+            zombieKills += pistol + pistol;
+        }
+        if(pistolFive){
+            randomexplodeamount = Random.Range(0, aboveThisRandom);
+            if(randomexplodeamount > 50){
+                zombieKills += pistol + pistol + pistol + pistol;
+            }
+        }
         StartCoroutine(ShotCooldownpistol());
     }
 
@@ -187,7 +200,6 @@ public class Kills : MonoBehaviour
     private void Shootshotgun(){
         canShootshotgun = false;
         zombieKills += shotgun * 4;
-        killText.text = ("Kills: " + zombieKills);
         StartCoroutine(ShotCooldownshotgun());
     }
 
@@ -199,7 +211,6 @@ public class Kills : MonoBehaviour
     private void Shootsmg(){
         canShootsmg = false;
         zombieKills += smg;
-        killText.text = ("Kills: " + zombieKills);
         StartCoroutine(ShotCooldownsmg());
     }
 
