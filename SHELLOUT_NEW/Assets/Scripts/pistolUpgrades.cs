@@ -45,15 +45,14 @@ public class pistolUpgrades : MonoBehaviour
         if(gameTracker.zombieKills >= 1000){
             gameTracker.zombieKills -= 1000;
             gameTracker.pistolFive = true;
-            pistolbuttonFive.interactable = false;
-            
+            pistolbuttonFour.interactable = false;
         }
     }
     public void pistolUpgradeFive(){
         if(gameTracker.zombieKills >= 1200){
             gameTracker.zombieKills -= 1200;
             gameTracker.timeBetweenShotspistol = .55f;
-            pistolbuttonFour.interactable = false;
+            pistolbuttonFive.interactable = false;
         }
     }
     public void pistolUpgradeSix(){
