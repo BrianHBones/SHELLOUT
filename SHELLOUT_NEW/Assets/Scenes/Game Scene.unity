@@ -712,7 +712,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purchase
+  m_text: 4000 Kills
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1386,7 +1386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purchase
+  m_text: 2200 Kills
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4889,6 +4889,7 @@ GameObject:
   - component: {fileID: 673845684}
   - component: {fileID: 673845686}
   - component: {fileID: 673845685}
+  - component: {fileID: 673845687}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Tracker
@@ -4976,6 +4977,13 @@ MonoBehaviour:
   pistolFive: 0
   pistolSix: 0
   aboveThisRandom: 50
+  shotgunOne: 0
+  shotgunThree: 0
+  shotgunFour: 0
+  shotgunFive: 0
+  shotgunSeven: 0
+  shotgunMultiplier: 4
+  aboveThisRandomBurn: 100
   fireRateAmount: 20
   explosiveAmount: 200
   pierceAmount: 70
@@ -5062,6 +5070,25 @@ MonoBehaviour:
   pistolbuttonFive: {fileID: 933104357}
   pistolbuttonSix: {fileID: 1358134964}
   pistolbuttonSeven: {fileID: 935671918}
+--- !u!114 &673845687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673845678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4548132bf709b449d9a29350634700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotgunbuttonOne: {fileID: 1690383228}
+  shotgunbuttonTwo: {fileID: 845819278}
+  shotgunbuttonThree: {fileID: 2102792713}
+  shotgunbuttonFour: {fileID: 2080903303}
+  shotgunbuttonFive: {fileID: 797059787}
+  shotgunbuttonSix: {fileID: 1328838952}
+  shotgunbuttonSeven: {fileID: 2105444451}
 --- !u!1 &696046949
 GameObject:
   m_ObjectHideFlags: 0
@@ -7929,8 +7956,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1968832442}
   m_HandleRect: {fileID: 1968832441}
   m_Direction: 2
-  m_Value: -0.0000006771652
-  m_Size: 0.61368513
+  m_Value: -0.0000015800522
+  m_Size: 0.6137143
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9002,7 +9029,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purchase
+  m_text: 2700 Kills
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9202,7 +9229,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purchase
+  m_text: 3000 Kills
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9471,7 +9498,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purchase
+  m_text: 3200 Kills
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9807,7 +9834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purchase
+  m_text: 3500 Kills
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15359,7 +15386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 270.40018}
+  m_AnchoredPosition: {x: 0, y: 270.40042}
   m_SizeDelta: {x: 0, y: 700}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2054884969
@@ -16390,7 +16417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purchase
+  m_text: 2500 Kills
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
