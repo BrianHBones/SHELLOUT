@@ -65,7 +65,7 @@ public class pistolUpgrades : MonoBehaviour
     public void pistolUpgradeSeven(){
         if(gameTracker.zombieKills >= 2000){
             gameTracker.zombieKills -= 2000;
-            gameTracker.aboveThisRandom = 25;
+            gameTracker.aboveThisRandom = 100;
             pistolbuttonSeven.interactable = false;
         }
     }

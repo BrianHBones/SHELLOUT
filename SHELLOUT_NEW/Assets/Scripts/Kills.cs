@@ -29,7 +29,17 @@ public class Kills : MonoBehaviour
     public bool pistolFive = false;
     public bool pistolSix = false;
     int randomexplodeamount = 0;
-    public int aboveThisRandom = 50;
+    public int aboveThisRandom = 75;
+
+    [Header("shotgun Upgrades")]
+    public bool shotgunOne = false;
+    public bool shotgunThree = false;
+    public bool shotgunFour = false;
+    public bool shotgunFive = false;
+    public bool shotgunSeven = false;
+    public int shotgunMultiplier = 4;
+    int randomBurnamount = 0;
+    public int aboveThisRandomBurn = 100;
 
     [Header("modification total")]
     public float fireRateAmount = 20f;
@@ -40,8 +50,6 @@ public class Kills : MonoBehaviour
     public float smgAmount = 240f;
 
     [Header("text")]
- 
-
     public TextMeshProUGUI fireRateText;
     public TextMeshProUGUI explosiveText;
     public TextMeshProUGUI pierceText;
@@ -199,7 +207,13 @@ public class Kills : MonoBehaviour
 
     private void Shootshotgun(){
         canShootshotgun = false;
-        zombieKills += shotgun * 4;
+        zombieKills += shotgun * shotgunMultiplier;
+        if(shotgunThree){
+            randomBurnamount = Random.Range(0, aboveThisRandomBurn);
+            if(aboveThisRandomBurn > 75){
+                zombieKills += shotgun * 2;
+            }
+        }
         StartCoroutine(ShotCooldownshotgun());
     }
 
