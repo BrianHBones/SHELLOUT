@@ -41,6 +41,13 @@ public class Kills : MonoBehaviour
     int randomBurnamount = 0;
     public int aboveThisRandomBurn = 100;
 
+    [Header("smg Upgrades")]
+    public bool smgOne = false;
+    public bool smgThree = false;
+    public bool smgFour = false;
+    public bool smgSix = false;
+    public bool smgSeven = false;
+
     [Header("modification total")]
     public float fireRateAmount = 20f;
     public float explosiveAmount = 200f;
@@ -225,6 +232,21 @@ public class Kills : MonoBehaviour
     private void Shootsmg(){
         canShootsmg = false;
         zombieKills += smg;
+        if(smgOne){
+            zombieKills += smg;
+        }
+        if(smgFour){
+            zombieKills += smg;
+        }
+        if(smgThree){
+            zombieKills += smg + smg;
+        }
+        if(smgSix){
+            zombieKills += smg + smg;
+        }
+        if(smgSeven){
+            zombieKills += smg + smg;
+        }
         StartCoroutine(ShotCooldownsmg());
     }
 
