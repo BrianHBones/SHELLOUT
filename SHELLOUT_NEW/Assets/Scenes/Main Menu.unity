@@ -2202,7 +2202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98acc02934c5dbb428fe4708aa368fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStartDelay: 3
+  gameStartDelay: 0.1
   mainScreen: {fileID: 2012990890}
   upgradeScreen: {fileID: 1994268635}
   playButton: {fileID: 0}
