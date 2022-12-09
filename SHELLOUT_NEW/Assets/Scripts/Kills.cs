@@ -72,6 +72,9 @@ public class Kills : MonoBehaviour
     public TextMeshProUGUI smgText;
     public TextMeshProUGUI tonextsmgText;
 
+    CameraShake cameraShake;
+    [SerializeField] bool applyCameraShake;
+
     [Header("auto amounts")]
     public bool canShootpistol = true;
     public float timeBetweenShotspistol = 1f;
@@ -81,6 +84,7 @@ public class Kills : MonoBehaviour
     public float timeBetweenShotssmg = .5f;
 
     void Start(){
+        cameraShake = FindObjectOfType<CameraShake>();
         
         fireRateText.text = ("Owned: " + fireRate);
         explosiveText.text = ("Owned: " + explosive);
@@ -110,6 +114,14 @@ public class Kills : MonoBehaviour
         if(explosive >= 1){
             zombieKills += explosive * 4;
         }
+        cameraShake.shakeStrength = .5f;
+        StartCoroutine(gunShot());
+
+    }
+
+    IEnumerator gunShot(){
+        yield return new WaitForSeconds(0.5f);
+        cameraShake.shakeStrength = 0f;
     }
 
     public void FireRateBuy(){
